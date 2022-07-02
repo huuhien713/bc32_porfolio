@@ -6,13 +6,13 @@
 }
 
 html, body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: Hind,sans-serif;
+  color: #212529;
+  line-height: 1.5;
+  background-color: #fff;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
   text-align: left;
-  background-color: #fff;
 }
 
 ul {
@@ -21,58 +21,113 @@ ul {
 
 .header {
   position: absolute;
+  top: 0;
   left: 50%;
+  z-index: 100;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  width: 100%;
-  margin: 0 auto;
-  z-index: 1;
 }
 
-.header a i {
-  color: green;
-  font-size: 2.5rem;
+.header .navbar .navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
 }
 
-.header a span {
+.header .navbar .navbar-brand i {
+  font-size: 45px;
+  width: 42.19px;
+  color: #35a22c;
+}
+
+.header .navbar .navbar-brand span {
   color: white;
-  font-size: 2rem;
+  font-size: 36px;
 }
 
-.header ul li {
+.header .navbar .navbar-collapse ul .nav-item.active .nav-link {
+  color: #35a22c;
+}
+
+.header .navbar .navbar-collapse ul .nav-item.active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.header .navbar .navbar-collapse ul .nav-item {
   margin: 0 10px;
 }
 
-.header ul li a {
-  color: rgba(255, 255, 255, 0.5);
+.header .navbar .navbar-collapse ul .nav-item::after {
+  content: "";
   display: block;
-  padding: 0.5rem !important;
+  width: 0;
+  height: 2px;
+  background-color: #35a22c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 0;
 }
 
-.mycarousel .carousel-inner {
-  background-size: cover;
+.header .navbar .navbar-collapse ul .nav-item:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.header .navbar .navbar-collapse ul .nav-item:hover a {
+  color: #35a22c;
+}
+
+.header .navbar .navbar-collapse ul .nav-item a {
+  color: white;
+  display: block;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.myCarousel {
+  position: relative;
+}
+
+.myCarousel .carousel-indicators li {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.myCarousel .carousel-indicators li:hover {
+  background-color: #35a22c;
+  opacity: 1;
+}
+
+.myCarousel .carousel-indicators li.active {
+  background-color: #35a22c;
+  opacity: 1;
+}
+
+.myCarousel .carousel-inner .carousel-item {
+  height: 100vh;
   background-position: center;
-  background-repeat: none;
-  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.mycarousel .carousel-inner:first-child {
-  background-image: url(../images/finland.jpg);
+.myCarousel .carousel-inner .carousel-item::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(39, 43, 54, 0.5);
+  z-index: 1;
 }
 
-.mycarousel .carousel-inner:nth-child(2) {
-  background-image: url(../images/mountains.jpg);
-}
-
-.mycarousel .carousel-inner:nth-child(3) {
-  background-image: url(../images/mountains-1.jpg);
-}
-
-.mycarousel .carousel-inner .carousel-item {
-  height: 100vh;
-}
-
-.mycarousel .carousel-inner .carousel-item .carousel-caption {
+.myCarousel .carousel-inner .carousel-item .carousel-caption {
   position: absolute;
   top: 77%;
   left: 0;
@@ -82,13 +137,324 @@ ul {
           transform: translateY(-50%);
 }
 
-.mycarousel .carousel-inner .carousel-item .carousel-caption .img-thumb {
+.myCarousel .carousel-inner .carousel-item .carousel-caption img {
   width: 150px;
   height: auto;
   margin: 0 auto;
+  border-radius: 50%;
 }
 
-.mycarousel .carousel-inner .carousel-item .carousel-caption .img-thumb img {
+.myCarousel .carousel-inner .carousel-item .carousel-caption h5 {
+  font-size: 56px;
+  line-height: 65px;
+}
+
+.myCarousel .carousel-inner .carousel-item .carousel-caption p {
+  font-size: 24px;
+}
+
+.myCarousel .carousel-inner .carousel-item:first-child {
+  background-image: url(../images/finland.jpg);
+  height: 100vh;
+}
+
+.myCarousel .carousel-inner .carousel-item:nth-child(2) {
+  background-image: url(../images/mountains.jpg);
+  height: 100vh;
+}
+
+.myCarousel .carousel-inner .carousel-item:last-child {
+  background-image: url(../images/mountains-1.jpg);
+  height: 100vh;
+}
+
+.project__title {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.project__title h2 {
+  font-size: 36px;
+  line-height: 42px;
+  color: #1a1d2d;
+  font-weight: 600;
+}
+
+.project__title p {
+  color: #585858;
+  line-height: 24px;
+}
+
+.project__content .nav-tabs {
+  border-bottom: none;
+}
+
+.project__content .nav-tabs .nav-item {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.project__content .nav-tabs .nav-item .nav-link {
+  color: #585858;
+  border: 1px solid #1a1d2d;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.project__content .nav-tabs .nav-item .nav-link.active {
+  border-color: transparent;
+  color: white;
+  background-color: #35a22c;
+}
+
+.project__content .col__item {
+  margin-top: 30px;
+  border-radius: 1rem;
+  border: none;
+  -webkit-box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.13);
+          box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+}
+
+.project__content .col__item img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.project__content .col__item:hover h3 {
+  color: #35a22c;
+}
+
+.project__content .col__item:hover div {
+  border-color: #35a22c;
+}
+
+.project__content .col__item div {
+  padding: 1.25rem;
+  border: 1px solid transparent;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.project__content .col__item div h3 {
+  font-size: 1.25rem;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.project__content .col__item div p {
+  color: #585858;
+  margin-bottom: 1rem;
+}
+
+.feature {
+  background-image: url(../images/3.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 100px 0 120px;
+  position: relative;
+}
+
+.feature .overlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(7, 10, 12, 0.72);
+}
+
+.feature .container {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.feature__title {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.feature__title h2 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.feature__title p {
+  color: #fff;
+  line-height: 24px;
+}
+
+.feature__content .col__item {
+  padding: 40px 40px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.feature__content .col__item:hover {
+  border-color: white;
+  background-color: black;
+}
+
+.feature__content .col__item i {
+  font-size: 48px;
+  color: #35a22c;
+}
+
+.feature__content .col__item h4 {
+  font-size: 20px;
+  color: #fff;
+  line-height: 30px;
+  padding-top: 25px;
+  font-weight: 800;
+}
+
+.feature__content .col__item p {
+  padding-top: 15px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.award {
+  padding: 70px 0;
+  position: relative;
+}
+
+.award::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  background-position: bottom left;
+  background-size: 50% auto;
+  background-repeat: no-repeat;
+  background-image: url(../images/memphis_3.png);
+}
+
+.award__content {
+  position: relative;
+  z-index: 1;
+}
+
+.award__content .col__item-5 {
+  padding: 45px;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  -webkit-box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.3);
+}
+
+.award__content .col__item-5 h2 {
+  font-size: 36px;
+  line-height: 42px;
+  color: #1a1d2d;
+  font-weight: 600;
+}
+
+.award__content .col__item-5 p {
+  color: #585858;
+  line-height: 24px;
+}
+
+.award__content .col__item-7 {
+  padding: 45px 0;
+}
+
+.footer {
+  background-color: #222222;
+}
+
+.footer .footer__top a {
+  color: #585858;
+  margin-right: 10px;
+}
+
+.footer .footer__top a:hover {
+  color: #35a22c;
+}
+
+.footer .footer__top a:hover i {
+  border-color: #35a22c;
+}
+
+.footer .footer__top a i {
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
   border-radius: 50%;
+  border: 1px solid #454545;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.footer .footer__bottom p {
+  color: #aaa;
+  margin: 0;
+  border-top: 1px solid #454545;
+  padding-top: 30px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 991.98px) {
+  .header .navbar .navbar-toggler {
+    background-color: #35a22c;
+  }
+  .header .navbar .navbar-toggler span {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .header .navbar .navbar-collapse {
+    padding: 0;
+  }
+  .header .navbar .navbar-collapse ul {
+    background-color: #fff;
+  }
+  .header .navbar .navbar-collapse ul .nav-item {
+    margin: 0;
+    padding: 0 10px;
+  }
+  .header .navbar .navbar-collapse ul .nav-item.active::after {
+    width: 0;
+  }
+  .header .navbar .navbar-collapse ul .nav-item .nav-link {
+    color: #35a22c;
+  }
+  .header .navbar .navbar-collapse ul .nav-item:hover {
+    background-color: #35a22c;
+  }
+  .header .navbar .navbar-collapse ul .nav-item:hover::after {
+    width: 0;
+  }
+  .header .navbar .navbar-collapse ul .nav-item:hover .nav-link {
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .carousel-caption h5 {
+    max-width: 540px;
+    margin: 0 auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */
